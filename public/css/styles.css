@@ -1,0 +1,9 @@
+body { background: #f8f9fa; }
+.navbar-brand { font-weight: 700; letter-spacing: 0.3px; }
+.card { border-radius: 12px; }
+.container { max-width: 1100px; }
+
+.navbar { background: linear-gradient(90deg, #ffffff, #f8f9ff); }
+.card:hover { transform: translateY(-6px); transition: .2s; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+.hero { padding: 2.5rem; background: linear-gradient(90deg,#eef2ff,#fff); border-radius: 12px; margin-bottom: 1rem; }
+.badge-cat { background:#eef; color:#115; padding:4px 8px; border-radius:8px; font-weight:600; }

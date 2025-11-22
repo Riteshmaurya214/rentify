@@ -1,0 +1,37 @@
+<h2>Dashboard</h2>
+<div class="row">
+  <div class="col-md-6">
+    <h4>Your Listings</h4>
+    <% if(myProducts && myProducts.length){ %>
+      <% myProducts.forEach(p => { %>
+        <div class="card mb-2">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <h5 class="mb-0"><%= p.title %></h5>
+              <small>₹<%= p.pricePerDay %>/day</small>
+            </div>
+            <a href="/products/<%= p._id %>" class="btn btn-sm btn-outline-primary">View</a>\n<form action="/products/<%= p._id %>/delete" method="POST" class="d-inline ms-2"><button class="btn btn-sm btn-danger">Delete</button></form>
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No listings yet. <a href="/products/add">Add a product</a></p>
+    <% } %>
+  </div>
+  <div class="col-md-6">
+    <h4>Your Notifications</h4>
+    <% if(user && user.notifications && user.notifications.length){ %>
+      <ul class="list-group">
+        <% user.notifications.forEach(n => { %>
+          <li class="list-group-item">
+            <small><%= new Date(n.createdAt).toLocaleString() %></small><br>
+            <%= n.message %>
+            <% if(!n.read){ %> <span class="badge bg-primary ms-2">New</span> <% } %>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No notifications.</p>
+    <% } %>
+  </div>
+</div>

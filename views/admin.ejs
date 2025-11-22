@@ -1,0 +1,25 @@
+<% /* Admin panel - simple overview */ %>
+<h2>Admin Panel</h2>
+<div class="row">
+  <div class="col-md-6">
+    <h4>Users</h4>
+    <ul class="list-group">
+      <% users.forEach(u => { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div><strong><%= u.name %></strong><br><small><%= u.email %> - <%= u.role %></small></div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h4>Products</h4>
+    <% products.forEach(p => { %>
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5><%= p.title %></h5>
+          <p class="mb-0"><small>By: <%= p.owner ? p.owner.name : '—' %></small></p>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
